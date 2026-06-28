@@ -174,15 +174,13 @@ The chatbot uses rule-based intent matching instead of a generative AI model. Th
 
 #  Future Improvements
 
-- User Login System
-- Family Health Profiles
-- Cloud Deployment
-- SMS or Email Medication Reminders
-- Wearable Device Integration
-- Heart Disease Prediction
-- Multi-language Support
-- Doctor/Caregiver Dashboard
-
+Add user authentication for multi-patient/family support
+Integrate wearable device data (e.g. Fitbit, smartwatch API) for automatic vitals logging
+Add SMS/push notifications for medication reminders
+Expand the ML model to predict additional conditions (hypertension, heart disease)
+Add multilingual chatbot support for wider accessibility
+Deploy to the cloud (Render/Railway/Azure) with a production WSGI server
+Add a caregiver/doctor view to monitor adherence and risk trends remotely
 ---
 
 #  Sustainable Development Goal
