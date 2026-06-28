@@ -8,7 +8,7 @@ HealthPulse AI is a healthcare web application that helps users monitor their he
 
 ---
 
-# 📌 Problem Statement
+# Problem Statement
 
 Many people living with or at risk of diabetes find it difficult to monitor their health regularly and remember their medications. Lack of continuous health tracking can delay the identification of health risks and lead to serious complications.
 
@@ -16,7 +16,7 @@ HealthPulse AI aims to provide an easy-to-use digital solution that encourages p
 
 ---
 
-# 🎯 Project Objective
+# Project Objective
 
 The main objectives of this project are:
 
@@ -28,11 +28,11 @@ The main objectives of this project are:
 
 ---
 
-# 💡 Solution Overview
+# Solution Overview
 
 HealthPulse AI consists of three main modules.
 
-### 🤖 Health Chat Assistant
+### Health Chat Assistant
 
 A rule-based chatbot that can:
 
@@ -76,7 +76,7 @@ The dashboard displays:
 
 ---
 
-# ✨ Features
+# Features
 
 - AI-based Health Chatbot
 - Diabetes Risk Prediction
@@ -89,7 +89,7 @@ The dashboard displays:
 
 ---
 
-# 🛠 Technology Stack
+# Technology Stack
 
 ### Frontend
 - HTML5
@@ -114,7 +114,7 @@ Pima Indians Diabetes Dataset (UCI Repository)
 
 ---
 
-# 📷 Project Screenshots
+# Project Screenshots
 
 Add screenshots after running the application.
 
@@ -126,7 +126,7 @@ Add screenshots after running the application.
 
 ---
 
-# 🚀 Installation
+#  Installation
 
 ### Clone Repository
 
@@ -166,13 +166,13 @@ http://127.0.0.1:5000
 
 ---
 
-# 🤖 Why Rule-Based Chatbot?
+#  Why Rule-Based Chatbot?
 
 The chatbot uses rule-based intent matching instead of a generative AI model. This approach provides consistent responses, works offline, avoids unpredictable answers, and does not require any external API.
 
 ---
 
-# 🔮 Future Improvements
+#  Future Improvements
 
 - User Login System
 - Family Health Profiles
@@ -185,7 +185,7 @@ The chatbot uses rule-based intent matching instead of a generative AI model. Th
 
 ---
 
-# 🌍 Sustainable Development Goal
+#  Sustainable Development Goal
 
 **SDG 3 – Good Health and Well-being**
 
