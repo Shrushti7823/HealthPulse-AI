@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthPulse AI  — Diabetes Risk & Wellness Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <svg class="brand-pulse" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="0,16 28,16 35,4 42,28 49,16 120,16" />
+    </svg>
+    <span class="brand-name">HealthPulse <span class="brand-ai">AI</span></span>
+  </div>
+  <p class="brand-tagline">SDG 3 · Good Health &amp; Well-being</p>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="chat">Chat Assistant</button>
+  <button class="tab-btn" data-tab="risk">Check Risk</button>
+  <button class="tab-btn" data-tab="dashboard">Dashboard</button>
+</nav>
+
+<main>
+
+  <!-- ===================== CHAT TAB ===================== -->
+  <section id="chat" class="tab-panel active">
+    <div class="card chat-card">
+      <div class="card-header">
+        <h2>AI Health Assistant</h2>
+        <p>Ask about reminders, symptoms, diet, or exercise guidance.</p>
+      </div>
+      <div id="chat-window" class="chat-window">
+        <div class="msg bot">
+          <span class="msg-bubble">Hi! I'm HealthPulse . I can help with medication reminders, symptom logging, and general diabetes-wellness questions. Try asking "what should I eat?" or "remind me to take my medicine".</span>
+        </div>
+      </div>
+      <form id="chat-form" class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="Type a message…" autocomplete="off" required>
+        <button type="submit">Send</button>
+      </form>
+      <div class="suggestion-chips">
+        <button type="button" class="chip" data-msg="What should I eat to lower my risk?">Diet tips</button>
+        <button type="button" class="chip" data-msg="How much exercise do I need?">Exercise</button>
+        <button type="button" class="chip" data-msg="What are the symptoms of diabetes?">Warning signs</button>
+        <button type="button" class="chip" data-msg="Remind me to take my medicine">Set reminder</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RISK TAB ===================== -->
+  <section id="risk" class="tab-panel">
+    <div class="card">
+      <div class="card-header">
+        <h2>Diabetes Risk Check</h2>
+        <p>Powered by a RandomForest model trained on the Pima Indians Diabetes dataset (75% accuracy, 0.81 ROC-AUC).</p>
+      </div>
+      <form id="risk-form" class="risk-form">
+        <div class="field"><label>Pregnancies</label><input type="number" name="pregnancies" min="0" value="1" required></div>
+        <div class="field"><label>Glucose (mg/dL)</label><input type="number" name="glucose" min="0" value="120" required></div>
+        <div class="field"><label>Blood Pressure (mm Hg)</label><input type="number" name="blood_pressure" min="0" value="70" required></div>
+        <div class="field"><label>Skin Thickness (mm)</label><input type="number" name="skin_thickness" min="0" value="20" required></div>
+        <div class="field"><label>Insulin (mu U/mL)</label><input type="number" name="insulin" min="0" value="79" required></div>
+        <div class="field"><label>BMI</label><input type="number" step="0.1" name="bmi" min="0" value="25.0" required></div>
+        <div class="field"><label>Diabetes Pedigree Function</label><input type="number" step="0.01" name="diabetes_pedigree" min="0" value="0.47" required></div>
+        <div class="field"><label>Age</label><input type="number" name="age" min="1" value="33" required></div>
+        <button type="submit" class="primary-btn">Predict My Risk</button>
+      </form>
+
+      <div id="risk-result" class="risk-result hidden">
+        <div class="risk-score-ring">
+          <span id="risk-score-value">--</span>
+          <span class="ring-label">risk score</span>
+        </div>
+        <div class="risk-details">
+          <p id="risk-label-text" class="risk-label"></p>
+          <p class="risk-factors-title">Top contributing factors:</p>
+          <ul id="risk-factors-list"></ul>
+          <p class="risk-disclaimer">This is an AI estimate for awareness only — not a medical diagnosis. Please consult a healthcare professional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DASHBOARD TAB ===================== -->
+  <section id="dashboard" class="tab-panel">
+    <div class="dash-grid">
+
+      <div class="card span-2">
+        <div class="card-header"><h2>Risk Score History</h2></div>
+        <canvas id="riskChart" height="90"></canvas>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><h2>Medication Adherence</h2></div>
+        <div class="adherence-ring-wrap">
+          <canvas id="adherenceChart" width="160" height="160"></canvas>
+          <span id="adherence-pct" class="adherence-pct">--%</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><h2>Add Reminder</h2></div>
+        <form id="reminder-form" class="reminder-form">
+          <input type="text" name="med_name" placeholder="Medicine name" required>
+          <input type="time" name="reminder_time" required>
+          <select name="frequency">
+            <option>Daily</option>
+            <option>Twice Daily</option>
+            <option>Weekly</option>
+          </select>
+          <button type="submit" class="primary-btn small">Add</button>
+        </form>
+      </div>
+
+      <div class="card span-2">
+        <div class="card-header"><h2>Today's Reminders</h2></div>
+        <ul id="reminders-list" class="reminders-list">
+          <li class="empty-state">No reminders yet — add one above.</li>
+        </ul>
+      </div>
+
+      <div class="card span-2">
+        <div class="card-header"><h2>Glucose &amp; BMI Trend</h2></div>
+        <canvas id="vitalsChart" height="90"></canvas>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>HealthPulse AI  — Capstone Project · SDG 3: Good Health &amp; Well-being</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
