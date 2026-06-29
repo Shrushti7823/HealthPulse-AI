@@ -114,18 +114,6 @@ Pima Indians Diabetes Dataset (UCI Repository)
 
 ---
 
-# Project Screenshots
-
-Add screenshots after running the application.
-
-- Home Page
-- Chat Assistant
-- Diabetes Prediction
-- Dashboard
-- Medication Reminder
-
----
-
 #  Installation
 
 ### Clone Repository
@@ -133,24 +121,6 @@ Add screenshots after running the application.
 ```bash
 git clone https://github.com/Shrushti7823/HealthPulse-AI.git
 ```
-
-### Open Project
-
-```bash
-cd HealthPulse-AI
-```
-
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### Train Model (Optional)
-
-```bash
-python model/train_model.py
----
 
 #  Why Rule-Based Chatbot?
 
