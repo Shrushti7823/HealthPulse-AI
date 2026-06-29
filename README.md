@@ -150,20 +150,6 @@ pip install -r requirements.txt
 
 ```bash
 python model/train_model.py
-```
-
-### Run Application
-
-```bash
-python app.py
-```
-
-Open your browser:
-
-```
-http://127.0.0.1:5000
-```
-
 ---
 
 #  Why Rule-Based Chatbot?
