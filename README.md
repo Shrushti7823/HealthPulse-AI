@@ -1,7 +1,7 @@
 # 🩺 HealthPulse AI
 
 ## AI-Powered Health Companion
-**Lenovo AI Capstone Project**  
+ 
 **SDG 3: Good Health and Well-being**
 
 HealthPulse AI is a healthcare web application that helps users monitor their health through AI-powered features. It combines a health chatbot, a diabetes risk prediction model, and a personal dashboard to support better health awareness and medication management.
@@ -17,8 +17,6 @@ HealthPulse AI aims to provide an easy-to-use digital solution that encourages p
 ---
 
 # Project Objective
-
-The main objectives of this project are:
 
 - Provide an AI-based health assistant for common health queries.
 - Predict diabetes risk using Machine Learning.
