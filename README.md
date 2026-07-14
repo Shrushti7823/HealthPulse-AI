@@ -26,9 +26,7 @@ HealthPulse AI aims to provide an easy-to-use digital solution that encourages p
 
 ---
 
-# Solution Overview
-
-HealthPulse AI consists of three main modules.
+# HealthPulse AI consists of three main modules.
 
 ### Health Chat Assistant
 
