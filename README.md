@@ -143,6 +143,6 @@ HealthPulse AI supports preventive healthcare by helping users monitor their hea
 
 ---
 
-# 📄 License
+# License
 
 This project was developed for educational purposes as part of the **Lenovo AI Capstone Project (Bharat Cares LEAP Program)**.
